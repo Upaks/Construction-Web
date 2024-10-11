@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 50px 0 0 0; /* Added space from the top */
+    padding: 0;
+  }
+  .certify {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .certificate {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .certificate img {
+    max-width: 100%;
+    height: auto;
+  }
+  .details {
+    text-align: center;
+  }
+  .signature {
+    display: inline-block;
+    margin-top: 30px;
+  }

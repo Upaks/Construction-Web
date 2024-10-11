@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/"><img src="/images/box-seam.svg" alt="move it brand" height="30"> Jospaka Ventures</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="aboutLink" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Gallery">Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Contact">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="serviceLink" href="#services">Services</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const homePath = '/';  // Assuming the homepage path is '/'
+    
+    // Handle About link
+    const aboutLink = document.getElementById("aboutLink");
+    aboutLink.addEventListener("click", function (event) {
+      event.preventDefault();
+  
+      const currentPath = window.location.pathname;
+  
+      if (currentPath === homePath) {
+        // If already on the homepage, scroll smoothly to the "about" section
+        document.getElementById("about").scrollIntoView({ behavior: 'smooth' });
+      } else {
+        // If not on the homepage, redirect to the homepage with a URL hash for the "about" section
+        window.location.href = homePath + '#about';
+      }
+    });
+    
+    // Handle Services link
+    const servicesLink = document.getElementById("serviceLink");
+    servicesLink.addEventListener("click", function (event) {
+      event.preventDefault();
+  
+      const currentPath = window.location.pathname;
+  
+      if (currentPath === homePath) {
+        // If already on the homepage, scroll smoothly to the "services" section
+        document.getElementById("services").scrollIntoView({ behavior: 'smooth' });
+      } else {
+        // If not on the homepage, redirect to the homepage with a URL hash for the "services" section
+        window.location.href = homePath + '#services';
+      }
+    });
+  });
+</script>
+
+  

@@ -1,0 +1,145 @@
+<%- include("partials/header.ejs") %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <style>
+      .gallery {
+          margin-top: 20px;
+      }
+      .hidden {
+          display: none;
+      }
+  </style>
+  </head>
+<body>
+  <section class="wow animate__animated animate__fadeInLeft" data-wow-delay="0.5s">
+    <div class="container">
+        <div id="carouselExampleIndicators" class="carousel slide">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="/images/img1.jpg" class="d-block w-100" alt="couple">
+            </div>
+            <div class="carousel-item">
+              <img src="/images/img2.jpg" class="d-block w-100" alt="dog">
+            </div>
+            <div class="carousel-item">
+              <img src="/images/img3.jpg" class="d-block w-100" alt="family">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+  </section>
+
+<section class="wow animate__animated animate__fadeInLeft" data-wow-delay="0.5s">    
+      <div class="container text-center">
+        <h1 class="mt-5">Photo Album</h1>
+        <div class="btn-group mt-4" role="group" aria-label="Categories">
+            <button type="button" class="btn btn-dark" onclick="showGallery('building')">Building</button>
+            <button type="button" class="btn btn-dark" onclick="showGallery('road')">Road</button>
+            <button type="button" class="btn btn-dark" onclick="showGallery('maintenance')">Maintenance</button>
+        </div>
+
+        <div class="gallery mt-4">
+            <div id="building" class="hidden">
+                <h2>Building Gallery</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="/images/house1.jpeg" class="img-fluid" alt="Building 1">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="/images/house2.jpeg" class="img-fluid" alt="Building 2">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="/images/house3.jpeg" class="img-fluid" alt="Building 3">
+                    </div>
+                    <div class="col-md-4">
+                      <img src="/images/house4.jpeg" class="img-fluid" alt="Building 3">
+                  </div>
+                  <div class="col-md-4">
+                    <img src="/images/house5.jpeg" class="img-fluid" alt="Building 3">
+                </div>
+                <div class="col-md-4">
+                  <img src="/images/house6.jpeg" class="img-fluid" alt="Building 3">
+              </div>
+                </div>
+            </div>
+
+            <div id="road" class="hidden">
+                <h2>Road Gallery</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="/images/road1.jpg" class="img-fluid" alt="Road 1">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="/images/road2.jpg" class="img-fluid" alt="Road 2">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="/images/road3.jpg" class="img-fluid" alt="Road 3">
+                    </div>
+                </div>
+            </div>
+
+            <div id="maintenance" class="hidden">
+                <h2>Maintenance Gallery</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="/images/eqp1.JPG" class="img-fluid" alt="Maintenance 1">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="/images/eqp2.JPG" class="img-fluid" alt="Maintenance 2">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="/images/eqp3.JPG" class="img-fluid" alt="Maintenance 3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section> 
+
+
+  <%- include("partials/footer.ejs") %>
+    <script>
+          // Initialize WOW.js
+        new WOW().init();
+        function showGallery(category) {
+            // Hide all galleries
+            const galleries = document.querySelectorAll('.gallery > div');
+            galleries.forEach(gallery => {
+                gallery.classList.add('hidden');
+            });
+
+            // Show the selected category gallery
+            const selectedGallery = document.getElementById(category);
+            selectedGallery.classList.remove('hidden');
+        }
+
+        // Show all galleries on page load
+        document.addEventListener("DOMContentLoaded", function() {
+            showGallery('building'); // Change this to 'road' or 'maintenance' to display those by default
+        });
+    </script>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    </body>
+</html>
